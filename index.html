@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="body">
+    <h1 id="heading">Pomodoro Timer</h1>
+    <div id="pomodoro-box">
+        <div id="pomodoro-circle"></div>
+        <div id="pomodoro-time">25:00</div>
+    </div>
+    <div id="pomodoro-control" class="btn-row">
+        <button class="btn delete" id="delete-btn" onclick="work.delete()">Delete</button>
+        <button class="btn pause" id="pause-btn" paused="false" onclick="pauseTime()">Pause</button>
+    </div>
+    <div id="pomodoro-start" class="btn-row">
+        <button class="btn circle" id="decrease-btn" onclick="work.decrease()">-</button>
+        <button class="btn pause" id="start-btn" onclick="work.start()">Start</button>
+        <button class="btn circle" id="increase-btn" onclick="work.increase()">+</button>
+    </div>
+    <div class="btn-row">
+        <button class="btn long" id="deactivate-btn" onclick="blackScreen.show();">Deactivate screen</button>
+    </div>
+    <div id="black-screen" onclick="blackScreen.hide();"></div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('Service Worker registerd');
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed due to:', error);
+                });
+        }
+    </script>
+</body>
+
+</html>

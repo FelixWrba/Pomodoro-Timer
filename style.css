@@ -1,0 +1,124 @@
+:root {
+    --progress: 0%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 16px;
+}
+
+#pomodoro-box {
+    padding: 16px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pomodoro-circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+}
+
+#pomodoro-circle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#2196f3 0% var(--progress), #e0e0e0 var(--progress) 100%);
+    transition: all 1s;
+}
+
+#pomodoro-time {
+    position: absolute;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    padding: 16px;
+}
+
+#pomodoro-control {
+    display: none;
+}
+
+.btn {
+    height: 3em;
+    width: 100px;
+    border: none;
+    border-radius: 1.5em;
+    outline: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .2s;
+    background-color: #eeeeee;
+}
+
+.btn:active {
+    filter: brightness(0.8);
+    scale: .95;
+}
+
+.delete {
+    background-color: rgb(236, 0, 0);
+    color: white;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+.btn:disabled:active {
+    filter: brightness(1);
+}
+
+.pause {
+    background-color: rgb(0, 214, 0);
+    color: white;
+}
+
+.circle {
+    width: 3em;
+}
+
+.long {
+    width: 300px;
+}
+
+#black-screen {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: #000000;
+}
